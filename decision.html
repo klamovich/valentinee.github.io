@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap">
+    <link rel="stylesheet" href="css/modern-normalize.min.css">
+    <title>VALENTINE'S DAY</title>
+</head>
+<body>
+    <section class="decision">
+        <div class="container">
+            <h1 class="title">Will you be my Valentine?</h1>
+            <div class="decision__btn">
+                <a id="yesBtn" href="yes.html">Yes!</a>
+                <a id="noBtn" href="#">No.</a>
+            </div>
+            <div class="gif">
+                <img src="https://i.gifer.com/y2.gif" alt="">
+            </div>
+        </div>
+    </section>
+    <script>
+
+        const yesBtn = document.getElementById('yesBtn');
+        const noBtn = document.getElementById('noBtn');
+        let scaleFactor = 1;
+        let increment = 0.2;
+        const multiplier = 1.5;
+        let gap = 20;
+
+        const noTexts = [
+            "Are you sure?",
+            "Are you REALLY sure?",
+            "100% no?",
+            "PLEASE SWEETIE!",
+            "DON'T DO THIS TO ME!",
+            "This is your last chance.",
+            "Well...",
+            "You leave me no choice."
+            ];
+
+        let clickCount = 0;
+
+        noBtn.addEventListener('click', () => {
+            increment *= multiplier;
+
+            scaleFactor += increment;
+            yesBtn.style.transform = `scale(${scaleFactor})`;
+
+            if (clickCount < noTexts.length - 1) {
+                clickCount++;
+                noBtn.textContent = noTexts[clickCount];
+            } else {
+                noBtn.style.display = 'none';
+            }
+        });
+    </script>
+
+
+</body>
+</html>
